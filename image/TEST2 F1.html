@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Monaco BY DEV</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            background: linear-gradient(135deg, #000000, #FF0000);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        header nav {
+            display: flex;
+            align-items: center;
+        }
+
+        header nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        header nav a:hover {
+            background-color: #575757;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        /* Dropdown container */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown content */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #575757;
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: url('./image/monaco-track.jpg') no-repeat center center;
+            background-size: cover;
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #FF0000;
+            color: #060606;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero a:hover {
+            background-color: #CC0000;
+        }
+
+        .portfolio {
+            padding: 50px 20px;
+            background-color: #0c0c0c;
+            color: #333;
+        }
+
+        .portfolio h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .portfolio .logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .portfolio .logos img {
+            width: 100px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        .track {
+            padding: 50px 20px;
+            background-color: #8d0c0c;
+            color: #040404;
+            text-align: center;
+        }
+
+        .track img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            max-height: 200px;
+            /* Adjust the height as needed */
+        }
+
+        .biography {
+            padding: 50px 20px;
+            background-color: #5c080c;
+            color: #72c4cb;
+        }
+
+        .biography::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('./image/TRACK1.jpg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.2;
+            /* Adjust transparency here */
+            z-index: 0;
+        }
+
+        .biography h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .biography p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            header nav {
+                margin-top: 10px;
+            }
+
+            header nav a {
+                margin: 5px 0;
+            }
+
+            .hero h2 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .hero a {
+                padding: 8px 16px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 20px;
+            }
+
+            .hero {
+                padding: 50px 20px;
+            }
+
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero a {
+                padding: 6px 12px;
+                font-size: 14px;
+            }
+        }
+
+        .video-background {
+            position: relative;
+        }
+
+        .video-content {
+            position: absolute;
+            z-index: 10;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>F1 Monaco BY DEV</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <div class="dropdown">
+                <a href="#">Circuit</a>
+                <div class="dropdown-content">
+                    <a href="#">Overview</a>
+                    <a href="#">Track Layout</a>
+                    <a href="#">History</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Tickets</a>
+                <div class="dropdown-content">
+                    <a href="#">Buy Tickets</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">Seating Chart</a>
+                </div>
+            </div>
+            <a href="#">News</a>
+            <a href="#">Gallery</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>The Pinnacle of Motorsport</h2>
+        <p>Experience the thrill and glamour of the Monaco Grand Prix, the most prestigious race in Formula 1.</p>
+        <a href="#">Get Tickets</a>
+    </section>
+
+    <section class="portfolio">
+        <h3>Our Partners</h3>
+        <div class="logos">
+            <img src="./image/F11.jpg" alt="Partner 1">
+            <img src="./image/F33.jpg" alt="Partner 2">
+            <img src="./image/F66.jpg" alt="Partner 4">
+            <img src="./image/F44.jpg" alt="Partner 5">
+            <img src="./image/F55.jpg" alt="Partner 6">
+        </div>
+    </section>
+
+    <section class="track">
+        <h3>Monaco Grand Prix Circuit</h3>
+        <img src="./image/TRACK.jpg" alt="Monaco Grand Prix Circuit">
+        <img src="./image/TRACK1.jpg" alt="Monaco Grand Prix Circuit2">
+        <img src="./image/TRACK.jpg" alt="Monaco Grand Prix Circuit3">
+    </section>
+
+    <section class="biography">
+        <div class="video-background">
+            <video autoplay muted loop class="fill-width">
+                <source src="./image/RC FG.mp4" type="video/mp4">
+            </video>
+            <div class="video-content">
+                <h2><b>Biography: Formula 1 Monaco Grand Prix</b></h2>
+                <p><strong>The Jewel of the Formula 1 Crown</strong></p>
+                <p><em> Monaco Grand Prix is the most prestigious and iconic race on the Formula 1 calendar. Held
+                    annually on the narrow streets of Monte Carlo and La Condamine, it is a thrilling spectacle of speed, precision, and glamour. Since its inception in 1929, the Monaco Grand Prix has become synonymous with luxury and excellence, attracting racing legends, celebrities, and fans from around the world.</em></p>
+                <p><strong><b>A Historic Legacy</b></strong></p>
+                <p>The Monaco Grand Prix is renowned for its challenging circuit that winds through the city streets, featuring tight corners, elevation changes, and a tunnel, making it one of the most demanding tracks for drivers. The 3.337 km (2.074 miles) circuit, with its 19 corners, requires unparalleled skill and concentration. The race's rich history includes unforgettable moments and legendary victories by drivers such as Ayrton Senna, who holds the record for most wins at Monaco with six victories.</p>
+                <p><strong>The Ultimate Test of Skill</strong></p>
+                <p>Navigating the twisty and narrow Monaco circuit is a true test of a driver's ability and bravery. The lack of runoff areas means that even the smallest mistake can result in a crash, making it a race where precision is paramount. The track's unique layout also makes overtaking extremely difficult, putting a premium on qualifying performance and race strategy.</p>
+                <p><strong>Glamour and Prestige</strong></p>
+                <p>Beyond the racing, the Monaco Grand Prix is famous for its glitz and glamour. The event is a magnet for celebrities, royalty, and the global elite, who flock to the Principality to witness the race from luxurious yachts in the harbor or exclusive terraces overlooking the track. The race weekend is filled with lavish parties, high-end fashion, and a sense of grandeur that is unmatched in the world of motorsport.</p>
+                <p><strong>A Must-Watch Event</strong></p>
+                <p>Whether you are a die-hard racing fan or a casual observer, the Monaco Grand Prix offers an unparalleled experience. The combination of high-speed action, breathtaking scenery, and an electric atmosphere makes it a highlight of the Formula 1 season. The race is not just about points and championships; it is about prestige, honor, and the pursuit of perfection.</p>
+                <p>Join us as we celebrate the Monaco Grand Prix, a true masterpiece in the world of sports, where tradition meets innovation and the past meets the future. Witness the drama, excitement, and elegance of one of the greatest sporting events on the planet.</p>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
